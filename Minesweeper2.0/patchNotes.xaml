@@ -1,0 +1,269 @@
+﻿<Window x:Class="saperdun.patchNotes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:saperdun"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+          TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType"
+        Title="Обновления" Height="450" Width="250" MinHeight="450" MinWidth="250" Style="{DynamicResource MyWindowStyle}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" GlassFrameThickness="0,0,0,1" ResizeBorderThickness="7" CornerRadius="0" NonClientFrameEdges="none"/>
+    </WindowChrome.WindowChrome>
+    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Name="TitleGrid" Grid.Row="0" Style="{StaticResource MyHeaderGridStyle}" MouseLeftButtonDown="TitleGrid_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="26" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--Image Name="TitleIcon" Width="24" Height="24" HorizontalAlignment="Right" Stretch="None" VerticalAlignment="Center" Source="/NoticeOfChange;component/Resources/icon_mini.png" /-->
+                <TextBlock 
+         Name="TitleText"  Grid.Column="1" 
+         Text="{Binding Path=Title, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}}}"  
+         HorizontalAlignment="Center" VerticalAlignment="Center" 
+         Style="{StaticResource HeaderTextBlock}" FontSize="12" Padding="4,0,4,0" FontWeight="Regular" />
+                <Button Name="bClose" Grid.Column="4" Template="{StaticResource SysButtonClose}" Margin="0,0,5,10" Click="bClose_Click"/>
+                <Button Name="bMaximize" Grid.Column="3" Template="{StaticResource SysButtonMaximize}" Margin="0,0,2,10" Click="bMaximize_Click"/>
+                <Button Name="bMinimize" Grid.Column="2" Template="{StaticResource SysButtonMinimize}" Margin="0,0,2,10" Click="bMinimize_Click" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="ОБНОВЛЕНИЯ" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                        <TextBlock Text="Новые бонус-коды!" HorizontalAlignment="Center"/>
+                        <TextBlock Text="WeCameHereToConquer"/>
+                        <TextBlock Text="SomeMaterials"/>
+                        <Button x:Name="toLastPatch" Content="РЕЛИЗ 1.0.0" Click="toLastPatch_Click" Width="140" Height="30" FontSize="16" Margin="0,5,0,0"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 1.1.0 от 18.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Система ежедневных входов. Теперь за каждый ежедневный вход будет начисляться небольшое кол-во материалов. Под входом подразумевается хотя бы одна выигранная игра на любой сложности. За каждый последовательный вход кол-во материалов будет увеличиваться, достигая максимума на 5 день. Если вход будет продолжаться, то награда будет оставаться на уровне 5 дня. Сброс происходит через день остутствия входа."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Комментарий:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Планирую реворк &quot;Кастомной&quot; сложности. Есть две идеи. Первая - просто автоматическое определение кол-ва мин на поле, но это скучно и грустно. Вторая - полностью другой режим, со всякими приколами, которые к саперу имеют вообще малое отношение, чисто аркадный режим. Пока думаю, можете свои идеи предлагать."/>
+                        <TextBlock x:Name="release1_toscroll" FontSize="18" Margin="5" Text="Релиз 1.0.0 от 17.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая игровая механика - &quot;Персонажи&quot;!."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новое меню доступно после получения достижения &quot;Достойный&quot; и нажатия на кнопку"/>
+                        <Image Source="\Images\e238.png" Width="20"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Сразу 3 новые валюты, которые можно зарабатывать за победу в играх, но только после получения достижения &quot;Достойный&quot;. Чем выше сложность - тем выше награда. Победа в забеге на скорость дает немного доп. материалов. (&quot;Флажки&quot; доступны только с &quot;Высокой&quot; сложности или с победы в &quot;Забеге на скорость&quot; на &quot;Средней&quot; сложности)"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Достижение &quot;Достойный&quot;. Можно получить, пройдя &quot;Среднюю&quot; сложость в режиме &quot;Забег на скорость&quot; и уложившись во временные рамки."/>
+                        <TextBlock TextWrapping="Wrap" Text="-В новом меню доступна смена игрового персонажа. Изначально у всех доступен &quot;Работяга&quot;, который дает прирост в 5% к поинтам за игру."/>
+                        <TextBlock Margin="0,8,0,0" TextWrapping="Wrap" Text="-Платный персонаж: &quot;Шизик&quot;. Доступен для покупки за 5000 поинтов. Его пассивная способность позволяет с шансом 3% избежать проигрыша при нажатии на плитку с миной. У &quot;Шизика&quot; есть 5 уровней прокачки. С каждым уровнем шанс его пассивной способности увеличивается на 3% и достигает максимум 15% на последнем уровне. Также на последнем уровне его способность улучшается. При ее срабатывании также активируется один случайный буст раскрытия."/>
+                        <TextBlock Margin="0,8,0,0" TextWrapping="Wrap" Text="-Платный персонаж: &quot;Лексус&quot;. Доступен для покупки за 17500 поинтов после прокачки предыдушего персонажа до максимального уровня. Его пассивная спобоность позволяет изменять количество получаемых очков за игру. Изначальное изменение находится в разбросе от -10% и до +10%. 5 уровней прокачки. С каждым уровнем разброс смещается на 1 в положительную сторону и достигает от -5% и до +15%. На последнем уровне позволяет получать материалы даже в случае проигрыша, кроме этого немного повышает их количество в случае выигрыша, а также с небольшим шансом при завершении игры с любым результатом может получить один &quot;Флажок&quot;."/>
+                        <TextBlock Margin="0,8,0,0" TextWrapping="Wrap" Text="-Платный персонаж: &quot;Евген&quot;. Доступен для покупки за 30000 поинтов после прокачки предыдущего персонажа до максимального уровня. Его пассивная способность позволяет с шансом 5% при использовании обычного сонара бесплатно применить буст &quot;Улучшенный сонар&quot; на ту же плитку. 5 уровней прокачки. С каждым уровнем шанс срабатывания его пассивной способности увеличивается на 5% вплоть до 25% на последнем уровне. Также на последнем уровне, радиус &quot;Улучшенного сонара&quot; увеличивается на одну плитку. Это улучшение работает только при выбранном персонаже &quot;Евген&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.20.0 от 16.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новые фоны для альтернативных тем. Темы, которые получили новый фон: &quot;Осень&quot;, &quot;Луга&quot;, &quot;Небеса&quot;, &quot;Глубины&quot;, &quot;Sci-Fi&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.19.3 от 10.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Дополнительные фиксы для темы &quot;Киберпанк&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.19.2 от 10.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Изменено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь при игре на &quot;кастомной&quot; сложности поинты начисляться не будут. Возможно в будущем режим будет переработан."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Тема &quot;Киберпанк&quot; теперь использует другой механизм отрисовки свечения. Данное решение должно снизить нагрузку на графический движок и перебросить ее на процессор."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь можно отключить эффекты свечения в теме &quot;Киберпанк&quot;. Для это надо нажать на кнопку &quot;Использовать&quot; у данной темы еще раз. Тем же действием можно включить обратно."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.19.1 от 07.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Ошибка, которая позволяла &quot;вскрывать&quot; безопасные клетки при помощи &quot;Флага&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.19 от 03.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь проигрыш в первые несколько ходов не приводит к изменению статистики (зачисление очков остается как при поражении)."/>
+                        <TextBlock TextWrapping="Wrap" Text="-В связи с обновлением был произведен сброс статистики (был сброшен только процент побед, все накопления и уровни остались)."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Тема &quot;Киберпанк&quot; содержит спойлер к следующим графическим обновлениям."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.18.1 от 02.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Три новые темы: &quot;Луга&quot;, &quot;Осень&quot; и &quot;Sci-Fi&quot;. Цена - 25000 поинтов каждая."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Комментарий:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Небольшой филлерный патч, пока я реализую новую игровую механику."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.18 от 02.04.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая кнопка управления, которая позволяет скрыть основное меню и развернуть его обратно. При скрытии основного меню также автоматически будет скрыто и меню &quot;Бусты&quot;."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новые элементы интерфейса - полосы прокрутки, позволяющие использовать игру при уменьшении размеров окна. Они позволяют прокручивать основное игровое поле по горизонтали и вертикали, а также прокручивать основное меню и меню &quot;Бусты&quot; по вертикали."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Автоматическое сокрытие основного меню и меню &quot;Бусты&quot; при уменьшении размеров окна в том случае, если панель начиает перекрывать игровое поле. Ее все еще можно будет открыть поверх при помощи новой кнопки."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.17.2 от 19.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Пересмотрены временные рамки для режима забега на скорость."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Легкая теперь длится на 30 секунд больше (01:00 -> 01:30) и очки увеличиваются в течение минуты (было 30 секунд)."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Средняя теперь длится на 1 минуту больше (03:00 -> 04:00) и очки увеличиваются в течение 3 минут (было 2 минуты)."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Сложная теперь длится на 1 минуту больше (05:00 -> 06:00) и очки увеличиваются в течение 5 минут (было 4 минуты)."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Экспертная теперь длится на 1 минуту больше (11:00 -> 12:00) и очки увеличиваются в течение 10 минут и 30 секунд (было 9 минут и 30 секунд)."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Изменены условия для получения достижения &quot;Спидстер&quot;. Теперь время привязано к выбранной сложности: Легкая - 30 секунд, Средняя 2 минуты, Сложная 3 минуты 30 секунд, Экспертная 9 минут. Нужно один раз пройти игру на выбранной сложности с временем меньшими чем указано ранее."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.17.1 от 18.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь счетчик времени отображает оставшееся время до проигрыша. Изначально счетчик зеленого цвета, но при преодолении игроком первой временной отметки, он меняет свой цвет на красный, что обозначает, что очки пользователя будут уменьшены."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь при истечении времени в режиме &quot;Забега на скорость&quot; игра будет сразу же проиграна с результатом в 0 очков."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь во второй фазе &quot;Забега на скорость&quot; (когда очки начинают убывать) проигрыш приведет к потере всех накопленных очков за текущую игру."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.17 от 18.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новый режим &quot;Забег на скорость&quot; в меню &quot;Бусты&quot;. Для разблокировки необходимо наличие достижения &quot;Спидстер&quot;. Забег на скорость работает следующим образом:"/>
+                        <TextBlock TextWrapping="Wrap" Text="При активации режима и старте игры для каждой сложности будут установлены свои временные метки. Если успет пройти игру до первой метки, то счет будет увеличиваться в зависимости от оставшегося времени. Если успеть пройти только до второй метки, то счет наоборот будет уменьшаться. Но если не успеть вовсе, то счет будет обнулен."/>
+                        <TextBlock TextWrapping="Wrap" FontSize="14" Margin="0,10,0,0" Text="-Описание условий для &quot;Забега на скорость&quot; для каждой сложности:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-=Легкая (максимум 01:00 на прохождение). Очки увеличиваются в течении первых 30 секунд (до 00:30 на счетчике). Очки уменьшаются в течении последних 30 секунд (до 00:00 на счетчике)"/>
+                        <TextBlock TextWrapping="Wrap" Text="-=Средняя (максимум 03:00 на прохождение). Очки увеличиваются в течении первых 2 минут (до 01:00 на счетчике). Очки уменьшаются в течении последних 60 секунд (до 00:00 на счетчике)"/>
+                        <TextBlock TextWrapping="Wrap" Text="-=Сложная (максимум 05:00 на прохождение). Очки увеличиваются в течении первых 3 минут 30 секунд (до 01:00 на счетчике). Очки уменьшаются в течении последних 60 секунд (до 00:00 на счетчике)"/>
+                        <TextBlock TextWrapping="Wrap" Margin="0,0,0,15" Text="-=Экспертная (максимум 11:00 на прохождение). Очки увеличиваются в течении первых 9 минут (до 02:00 на счетчике). Очки уменьшаются в течении последних 2 минут (до 00:00 на счетчике)"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новый отслеживаемый стат для раздела статистики. Среднее время успешного прохождения для каждой сложности."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.16 от 14.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новое достижение &quot;Спидстер&quot;. Необходимо пройти любую сложность игры за 30 секунд. Открывает новый игровой режим &quot;РЕЖИМ В РАЗРАБОТКЕ&quot; в меню &quot;Бусты&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.15 от 13.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая кнопка &quot;Достижения&quot;, которая позволяет отследить полученные достижения. В дальнейшем будут добавлены новые достижения."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Ошибка, которая зачисляла очки дважды в случае победы. Сожалею, но ошибка исправлена."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Ошибка, которая приводила к зависанию и вылету из-за неправльного взаимодействия &quot;Улучшенного сонара&quot; и буста раскрытия случайной мины."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.14.1 от 10.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Ввод бонус-кода во время активной игры больше не приводит к преждевременному сохранению результатов игры."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.14 от 07.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая система сбора статистики. Теперь отображется общее количество игр, процент побед, а также лучшие результаты по текущей выбранной сложности. Данная статистика начнет сбор информации по играм, которые будут сыграны после ее выхода. Предыдущие игры в новою статистику не идут. Имеется возможность переключиться на старый режим статистики, в нем отображаются все игры, в независимости от того, когда были сыграны."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.13.1 от 06.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Восстановлена корректная работа механизма скрытия переключателя курсора в светлой теме."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новый шрифт применен ко всем темам, доступным в приложении."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Улучшение оптимизации при активной теме &quot;Киберпанк&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.13 от 05.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая тема: &quot;Киберпанк&quot;. Доступна для покупки за 75000 поинтов в разделе &quot;Оформление&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.12 от 03.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая сложность &quot;Эксперт&quot;. Размеры поля - 30 на 30, 225 мин. Награда за победу - полная, за поражение - половина. Достижение за первое прохождение - &quot;Надежка человечества&quot;."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новое достижение &quot;Надежда человечества&quot;. Дает постоянный прирост к поинтам за победу в игру. Прирост равен 1000 поинтов."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.11.1 от 03.03.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая тема: &quot;Небеса&quot;. Доступна для покупки за 25000 поинтов в разделе &quot;Оформление&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Изменено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Улучшен внешний вид раздела &quot;Оформление&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.11 от 28.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая тема: &quot;Глубины&quot;. Доступна для покупки за 25000 поинтов в разделе &quot;Оформление&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Изменено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено отображение сокрытия меню смены цвета курсора при выборе недоступных для смены курсора тем."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.10.1 от 28.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлено отключение смены цветовой темы курсора при выборе &quot;Золотой&quot; темы."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлена визуальная составляющая чек-боксов выбора сложности."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлена отрисовка кнопки взаимодействия &quot;Улучшенного сонара&quot;."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Изменена цена на покупку &quot;Золотой&quot; темы. С 25000 до 50000."/>
+                        <TextBlock Text="Патч 0.10 от 27.02.25" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь вместо &quot;??&quot; отрисовывается изображение с миной."/>
+                        <Image Source="Images/bimba.png" Width="40" Height="40"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Вместо &quot;!&quot; в месте установки &quot;флага&quot; отрисовывается изображение с флажком."/>
+                        <Image Source="Images/333.png" Width="40" Height="40"/>
+                        <TextBlock TextWrapping="Wrap" Text="-В разделе &quot;Бусты&quot; также теперь присутствуют изображения."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новый буст - &quot;Улучшенный сонар&quot;, цена 1000 поинтов. При нажатии на кнопку буста он активируется и ждет выбора пользователя. При нажатии на нераскрытую плитку происходит обычная итерация с плиткой, буст деактивируется, поинты не списываются. При нажатии на раскрытую плитку, у которой есть соседние мины, происходит автоматическое раскрытие всех близлежащих плиток. Мины отмечаются &quot;флажком&quot;, а &quot;безопасные&quot; плитки раскрываются как обычно (могут вызвать раскрытие дополнительных абсолютно пустых плиток) Если активировать буст на кликнуть на плитку, у которой все соседние плитки уже открыты/помечены - поинты не спишутся, но если хотя бы одна не будет раскрыта, то буст сработает."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправление механизма вызова всплывающих окон."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь переключатель смены курсора скрывается при переключении на недоступную тему."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправление алгоритмов рисование окна."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.9.2 от 27.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Измемен внешний вид всплывающих окон. Теперь они подстраиваются под выбранную цветовую тему интерфейса."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Изменен процесс сохранения, оптимизирована скорость работы и занимаемое место."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлена работа достижений."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.9.1 от 27.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Возможность смены цветовой темы выделения курсора в &quot;Светлой&quot; теме."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.9 от 26.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Система достижений. Теперь некоторые функции будут открываться за прохождение на разных уровнях сложности. НО! все функции откроются сразу, при прохождении на &quot;Высокой&quot; сложности. За прохождение &quot;Легкой&quot; сложности откроется раздел &quot;Бусты&quot;, за прохождение &quot;Средней&quot; сложности - &quot;Бонус-коды&quot;, за прохождение &quot;Сложной&quot; - магазин визуальных улучшений. За прохождение повышенной сложности, вы получите все преимущества предыдущих уровней."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Покупка визуальных улучшений. На данный момент имеется возможность купить &quot;Золотую&quot; тему для приложения. Цена - 25000 поинтов. В будущем будут добавлены новые позиции."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.8 от 25.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Режим смены тем приложения. Доступны светлая и темная темы. Переключаются по специальной кнопке, расположенной рядом с кнопкой &quot;Обновления&quot;. Выбранная тема сохраняется при выходе из приложения."/>
+                        <TextBlock FontSize="14" Margin="5" Text="ВНИМАНИЕ!"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Обновление очень большое, хоть может показаться, что мало изменилось, но на самом деле механизм рисования был почти полностью пересмотрен. Могут довольно часто встречаться визуальные ошибки, пожалуйста сообщайте о них."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.7.1 от 14.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Цена на раскрытие случайной &quot;безопасной&quot; плитки понижена с 250 до 150."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Уменьшено буфферное время нажатия ЛКМ+ПКМ с 200мс до 150мс."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Увеличена контрасность октрытых клеток."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлена обратная совместимость со старыми версиями файла конфигурации."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Еще одно исправление рисования &quot;кастомной&quot; сложности."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь сохранение потраченных очков происходит и при закрытии окна."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.7 от 14.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлены бонус-коды! Теперь пользователь может активировать специальные коды и получать за это приятные бонусы. Каждый уникальный код можно активировать только один раз."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлен функционал шифрования файла конфигурации."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.6.1 от 14.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Изменения в механизме покупки бустов. Теперь пользователь не может их хранить, вместо этого каждая активация будет списывать поинты. Цены остались прежними на момент патча 0.6."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.6 от 13.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая функция! Теперь можно открывать &quot;безопасные&quot; плитки. Эта функция может раскрыть случайную плитку на поле, которая не содержит мину, но также и соседние плитки вокруг нее, как будто это вы сами ее раскрыли. Для покупки необходимо нажать на кнопку &quot;++&quot;. Стоимость одной покупки: 250 очков. Для использования нажмите на кнопку &quot;+&quot;."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлен новый интерфейс для магазина. Теперь функция называется &quot;Бусты&quot;. При нажатии на соответствующую кнопку будет открываться дополнительная панель, в которой можно активировать и покупать бусты."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Изменение цен &quot;бустов&quot;. Раскрытие случайной мины теперь стоит 250 очков."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.5.1 от 13.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь раскрытие случайной мины всегда будет срабатывать на новую, ранее не отмеченную мину, если такие остались на поле."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено аварийное закрытие при попытке раскрыть мину, когда все имеющиеся на поле мины уже раскрыты."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Кнопка теперь перестает открывать мины, если отметила все мины, не обозначенные флагом игрока."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Изменен механизм определения победы в игре. Теперь также учитываются все отмеченные мины, а не только раскрытые, как было раньше."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Увеличено количество вызовов механизма определения победы. Теперь механизм должен работать корректно."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.5 от 12.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Новая функция! Теперь накопленные очки можно тратить! На данный момент доступна разблокировка одной случайной мины на поле, которая еще не была отмечена. Для покупки нужно нажать на кнопку &quot;+??&quot;. Стоимость одной покупки: 100 очков. Для использования нажмите кнопку &quot;??&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.4 от 12.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Переработан механизм активации &quot;Сонара&quot;. Теперь нужно нажать ЛКМ+ПКМ, чтобы активировать функцию. Также плитки теперь защищены от воздействия данной комбинации, если на них не может быть активирован &quot;Сонар&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Убрано отключение кнопок при нажатии на плитку. Вместо этого существует короткий буфер (75мс), во время которого нажатие на другую кнопку мыши будет относится к активации &quot;Сонара&quot;."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.3.4 от 11.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено поведение программы при отсутствии файла конфигурации."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлены временные элементы интерфейса для предстоящих функций."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.3.3 от 11.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-При первом запуске или окончании игры появляется большая кнопка &quot;Начать&quot;, которая выполняет те же функции, что уже существующая. Кнопка выравнивается в зависимости от размеров игрового поля."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Убрана задержка при раскрытии мин, теперь мины раскрываются мгновенно."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь при нажатии любой плитки она отключается на короткий промежуток времени (50 милисекунд), что защищает кнопку от любого повторного нажатия."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.3.2 от 11.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлена система подсчета общих очков. Расчет производится в зависимости от сложности игры. Легкая - 25% от суммы, средняя - 33% от суммы, сложная - 50% от суммы, кастомная - 33% от суммы. При поражении процент уменьшается в два раза. В будущем их можно будет тратить..."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.3.1 от 11.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Устранение ошибок прошлого патча."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.3 от 10.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь при поражении все мины будут поочереди с небольшой задержкой открываться игроку."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Цвет счетчика очков теперь изменяется в зависимости от результата игры."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Теперь панель отображения количества оставшихся мин скрывается при завершении игры."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.2.1 от 10.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено отслеживание скрытых и не отмеченных мин на поле. Корректное завершение игры, в случае победы игрока."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено поведение &quot;Сонара&quot;. Теперь если игрок отметил мин больше, чем распологается в окружении клетки или отметил их неправильно, игра будет проиграна."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлен выбор &quot;Кастомной&quot; сложности. Теперь пользователь может указать любое значение от 5 и до 50. Если указать некорректное значение, будет установлено значение по умолчанию: 10. Также теперь будет отображаться рекомендованное количество мин. Оно рассчитывается как 16% от общего числа клеток."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено поведение окна, при начале игры в &quot;Кастомной&quot; сложности. Обеспечена корректная установка размеров окна и игрового поля."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Исправлено дублирование результатов игрока при завершении игры."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Откорректированы цвета плиток, чтобы на Win7 они были легко различаемы."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Патч 0.2 от 07.02.25" HorizontalAlignment="Center"/>
+                        <TextBlock FontSize="14" Margin="5" Text="Добавлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-&quot;Сонар&quot;: подсвечивает соседние НЕ разведанные плитки для уже раскрытой. Не влияет на помеченные &quot;!&quot; плитки. Если игрок правильно отметил все близлежащие мины, то при срабатывании сонара произойдет раскрытие всех соседних для нажатой плиток."/>
+                        <TextBlock TextWrapping="Wrap" Text="-Добавлен счетчик оставшихся на поле мин. Если игрок помечает нераскрытую клетку &quot;!&quot;, то счетчик уменьшается, вне зависимости от корректности отметок."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Исправлено:"/>
+                        <TextBlock TextWrapping="Wrap" Text="-Улучшения визуальных компонентов."/>
+                        <TextBlock FontSize="14" Margin="5" Text="Первоначальная версия от 06.02.25"/>
+                        <TextBlock TextWrapping="Wrap" Text="Разработан код игры &quot;Сапер&quot;. В игре есть 4-ре сложности: легкая, средняя, сложная, кастомная (с выбором размеров поля и кол-вом мин)."/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

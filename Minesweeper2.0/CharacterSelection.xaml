@@ -1,0 +1,162 @@
+﻿<Window x:Class="saperdun.CharacterSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:saperdun"
+        mc:Ignorable="d"
+          WindowStyle="None"
+        ResizeMode="NoResize"
+    TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType"
+        Title="Выбор персонажа" Height="450" Width="210" Closed="Window_Closed" Style="{DynamicResource MyWindowStyle}">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" GlassFrameThickness="0,0,0,1" ResizeBorderThickness="7" CornerRadius="0" NonClientFrameEdges="none"/>
+    </WindowChrome.WindowChrome>
+    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Name="TitleGrid" Grid.Row="0" Style="{StaticResource MyHeaderGridStyle}" MouseLeftButtonDown="TitleGrid_MouseLeftButtonDown">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="26" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--Image Name="TitleIcon" Width="24" Height="24" HorizontalAlignment="Right" Stretch="None" VerticalAlignment="Center" Source="/NoticeOfChange;component/Resources/icon_mini.png" /-->
+                <TextBlock 
+   Name="TitleText"  Grid.Column="1" 
+   Text="Персонажи"  
+   HorizontalAlignment="Center" VerticalAlignment="Center" 
+   Style="{StaticResource HeaderTextBlock}" FontSize="12" Padding="4,0,4,0" FontWeight="Regular" />
+                <Button Name="bClose" Grid.Column="4" Template="{StaticResource SysButtonClose}" Margin="0,0,5,10" Click="bClose_Click"/>
+                <Button Name="bMaximize" Grid.Column="3" Template="{StaticResource SysButtonMaximize}" Margin="0,0,2,10" Click="bMaximize_Click"/>
+                <Button Name="bMinimize" Grid.Column="2" Template="{StaticResource SysButtonMinimize}" Margin="0,0,2,10" Click="bMinimize_Click" />
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="10,0,0,5" x:Name="scrapTxt" Text="Части: 0"/>
+                        <TextBlock Margin="60,0,0,0" Text="Справка:"/>
+                        <Button x:Name="help" Content="?" Width="20" Height="20" Click="help_Click"/>
+                    </StackPanel>
+                    <TextBlock Margin="10,0,0,5" x:Name="powderTxt" Text="Пыль: 0"/>
+                    <TextBlock Margin="10,0,0,5" x:Name="flagsTxt" Text="Флажки: 0"/>
+                </StackPanel>
+                <ScrollViewer Margin="0,55,0,0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+                    <Grid x:Name="mainCharPanel">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="110"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="{DynamicResource ForegroundBrush}" Grid.Row="0" BorderThickness="1" Margin="5">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Height="30">
+                                    <TextBlock Text="Работяга" VerticalAlignment="Center" Style="{DynamicResource TextBlockStyle}" Margin="5,0,0,0"/>
+                                    <Image x:Name="imgAlwaysOpen" Source="\Images\321.png" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Height="25" HorizontalAlignment="Center">
+                                    <TextBlock  Style="{DynamicResource TextBlockStyle}" Text="+3% очков за игру" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <Button Content="Выбрать" x:Name="chooseWorker" Width="150" Click="chooseWorker_Click"/>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="{DynamicResource ForegroundBrush}" Grid.Row="1" BorderThickness="1" Margin="5">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Height="30">
+                                    <TextBlock x:Name="txtEZ" Text="Шизик" VerticalAlignment="Center" Style="{DynamicResource TextBlockStyle}" Margin="5,0,0,0"/>
+                                    <Button Content="?" x:Name="aboutZH" Width="20" Height="20" Margin="5,0,90,0" Click="aboutZH_Click"/>
+                                    <Image x:Name="imgZH" Source="\Images\321.png" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                                <StackPanel x:Name="stackzh" Orientation="Horizontal" Height="30">
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png" x:Name="zhlvl1" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="zhlvl2" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="zhlvl3" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="zhlvl4" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png" x:Name="zhlvl5" Width="30"/>
+                                    </Border>
+                                </StackPanel>
+                                <TextBlock x:Name="mat_neededTxt" Text="---" HorizontalAlignment="Center" />
+                                <Button Content="Выбрать" x:Name="chooseZakhar" Width="150" Click="chooseZakhar_Click"/>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="{DynamicResource ForegroundBrush}" Grid.Row="2" BorderThickness="1" Margin="5">
+                            <StackPanel x:Name="lehaToHide" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Height="30">
+                                    <TextBlock x:Name="txtLE" Text="Лексус" VerticalAlignment="Center" Style="{DynamicResource TextBlockStyle}" Margin="5,0,0,0"/>
+                                    <Button Content="?" x:Name="aboutLE" Width="20" Height="20" Margin="5,0,90,0" Click="aboutLE_Click"/>
+                                    <Image x:Name="imgLE" Source="\Images\321.png" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                                <StackPanel x:Name="stackLE" Orientation="Horizontal" Height="30">
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png" x:Name="lelvl1" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="lelvl2" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="lelvl3" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="lelvl4" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png" x:Name="lelvl5" Width="30"/>
+                                    </Border>
+                                </StackPanel>
+                                <TextBlock x:Name="mat_neededLETxt" Text="---" HorizontalAlignment="Center" />
+                                <Button Content="Выбрать" x:Name="chooseLeha" Width="150" Click="chooseLeha_Click"/>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="{DynamicResource ForegroundBrush}" Grid.Row="3" BorderThickness="1" Margin="5">
+                            <StackPanel x:Name="evgenToHide" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Height="30">
+                                    <TextBlock x:Name="txtEV" Text="Евген" VerticalAlignment="Center" Style="{DynamicResource TextBlockStyle}" Margin="5,0,0,0"/>
+                                    <Button Content="?" x:Name="aboutEV" Width="20" Height="20" Margin="5,0,90,0" Click="aboutEV_Click"/>
+                                    <Image x:Name="imgEV" Source="\Images\321.png" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                                <StackPanel x:Name="stackEV" Orientation="Horizontal" Height="30">
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png" x:Name="evlvl1" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="evlvl2" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="evlvl3" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png"  x:Name="evlvl4" Width="30"/>
+                                    </Border>
+                                    <Border BorderBrush="{StaticResource ForegroundBrush}" BorderThickness="1" Width="30" Margin="5,0,0,0">
+                                        <Image Source="\Images\333.png" x:Name="evlvl5" Width="30"/>
+                                    </Border>
+                                </StackPanel>
+                                <TextBlock x:Name="mat_neededEVTxt" Text="---" HorizontalAlignment="Center" />
+                                <Button Content="Выбрать" x:Name="chooseEvgen" Width="150" Click="chooseEvgen_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

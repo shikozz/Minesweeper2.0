@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:System="clr-namespace:System;assembly=mscorlib"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="BackgroundColor">#2E3745</Color>
+    <Color x:Key="ForegroundColor">#FFFFFF</Color>
+    <Color x:Key="ButtonBackgroundColor">#34495E</Color>
+    <Color x:Key="ButtonForegroundColor">#FFFFFF</Color>
+    <Color x:Key="ButtonHoverBackgroundColor">#426081</Color>
+    <Color x:Key="ButtonHoverForegroundColor">#FFFFFF</Color>
+    <Color x:Key="ButtonFlaggedBackgroundColor">#80CBC4</Color>
+    <Color x:Key="ButtonMineBackgroundColor">#E57373</Color>
+    <Color x:Key="ButtonAdjacentBackgroundColor">#71A6D9</Color>
+    <Color x:Key="ButtonRevealedBackgroundColor">#90CAF9</Color>
+    <Color x:Key="ButtonSonarBackgroundColor">#BBFFB9</Color>
+    <Color x:Key="ScoreLabelBackgroundColor">White</Color>
+    <Color x:Key="ScoreLabelForegroundColor">Black</Color>
+    <Color x:Key="ScoreLabelWinBackgroundColor">LightGreen</Color>
+    <Color x:Key="ScoreLabelWinForegroundColor">Green</Color>
+    <Color x:Key="ScoreLabelLoseBackgroundColor">Pink</Color>
+    <Color x:Key="ScoreLabelLoseForegroundColor">Red</Color>
+    <Color x:Key="ButtonHoverBoostActiveBackgroundColor">Yellow</Color>
+    <Color x:Key="glowEffectColor">Transparent</Color>
+    <FontFamily x:Key="fontFamily">Courier New</FontFamily>
+    <System:Boolean x:Key="IsGlowEnabled">False</System:Boolean>
+    <Color x:Key="TransparentBackgroundColor">#d92E3745</Color>
+
+    <SolidColorBrush x:Key="TransparentBackgroundBrush" Color="{StaticResource TransparentBackgroundColor}"/>
+    <SolidColorBrush x:Key="glowEffectBrush" Color="{StaticResource glowEffectColor}"/>
+    <SolidColorBrush x:Key="ButtonHoverBoostActiveBackgroundBrush" Color="{StaticResource ButtonHoverBoostActiveBackgroundColor}"/>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource ForegroundColor}"/>
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{StaticResource ButtonBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonForegroundBrush" Color="{StaticResource ButtonForegroundColor}"/>
+    <SolidColorBrush x:Key="ButtonHoverBackgroundBrush" Color="{StaticResource ButtonHoverBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonHoverForegroundBrush" Color="{StaticResource ButtonHoverForegroundColor}"/>
+    <SolidColorBrush x:Key="ButtonFlaggedBackgroundBrush" Color="{StaticResource ButtonFlaggedBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonMineBackgroundBrush" Color="{StaticResource ButtonMineBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonAdjacentBackgroundBrush" Color="{StaticResource ButtonAdjacentBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonRevealedBackgroundBrush" Color="{StaticResource ButtonRevealedBackgroundColor}"/>
+    <SolidColorBrush x:Key="ButtonSonarBackgroundBrush" Color="{StaticResource ButtonSonarBackgroundColor}"/>
+    <SolidColorBrush x:Key="ScoreLabelBackgroundBrush" Color="{StaticResource ScoreLabelBackgroundColor}"/>
+    <SolidColorBrush x:Key="ScoreLabelForegroundBrush" Color="{StaticResource ScoreLabelForegroundColor}"/>
+    <SolidColorBrush x:Key="ScoreLabelWinBackgroundBrush" Color="{StaticResource ScoreLabelWinBackgroundColor}"/>
+    <SolidColorBrush x:Key="ScoreLabelWinForegroundBrush" Color="{StaticResource ScoreLabelWinForegroundColor}"/>
+    <SolidColorBrush x:Key="ScoreLabelLoseBackgroundBrush" Color="{StaticResource ScoreLabelLoseBackgroundColor}"/>
+    <SolidColorBrush x:Key="ScoreLabelLoseForegroundBrush" Color="{StaticResource ScoreLabelLoseForegroundColor}"/>
+</ResourceDictionary>
